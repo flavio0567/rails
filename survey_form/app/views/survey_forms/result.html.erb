@@ -1,0 +1,21 @@
+      
+<div id="box">
+  <p><%= flash[:success] %> </p>
+</div>
+<div id="main_content">
+
+    <div class="info">
+        <form action='/back' method="post">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <h3>Submitted Information</h3>
+
+            <p>Nome:  <%= @user['name'] %> </p>
+            <p>Dojo Location: <%= @user['unit'] %> </p>
+            <p>Favorite Language:  <%= @user['language'] %> </p>
+            <p>Comment: <%= @user['comment'] %> </p>
+
+            <button type="submit">Go Back</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+<div id="main_content">
+    <form action='/survey_proc/' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
+
+        <label>Your Name</label>
+        <input type="text" name="user[name]" /><br>
+
+        <label>Dojo Location</label>
+        <select name="user[unit]">
+            <option>San Jose</option>
+            <option>Bellevue</option>
+            <option>Burbank</option>
+            <option>Dallas</option>
+            <option>Maclean</option>
+            <option>Chicago</option>
+            <option>Tulsa</option>
+        </select><br>
+
+        <label>Favorite Language</label>
+        <select name="user[language]" />
+            <option>Python</option>
+            <option>Java</option>
+            <option>.NET/C#</option>
+            <option>Ruby on Rails</option>
+            <option>MEAN</option>
+            <option>iOS Swift</option>
+        </select><br>
+
+        <label>Comment (optional):</label>
+        <textarea name="user[comment]" /></textarea><br>
+    
+        <button type="submit">Submit</button>
+
+    </form>
+</div>    
+
