@@ -1,0 +1,67 @@
+
+<div class="container">
+
+	<h4>Your Gold: <%= @earns %> </h4>         
+
+	<div id="left">   
+	    <h3>Farm</h3>
+	    <p>(earns 10-20 golds)</p>
+	    <form id="form1" method="post" action='/ninjas/rpg'>
+         	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	        <input type="hidden" name="ninja" value="farm">
+	        <button class="btn btn-primary" type="submit" value="Submit">Find Gold!</button>
+	    </form> 
+	</div>
+
+	<div id="mid_1">
+	    <h3>Cave</h3>
+	    <p>(earns 5-10 golds)</p>
+	    <form id="form1" method="post" action='/ninjas/rpg'>
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	        <input type="hidden" name="ninja" value="cave">
+	        <button class="btn btn-primary" type="submit" value="Submit">Find Gold!</button>
+	    </form> 
+	</div>
+
+	<div id="mid_2">   
+	    <h3>House</h3>
+	    <p>(earns 2-5 golds)</p>
+	    <form method="post" action='/ninjas/rpg'>
+	        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	        <input type="hidden" name="ninja" value="house">
+	        <button class="btn btn-primary" type="submit" value="Submit">Find Gold!</button>
+	    </form> 
+	</div>
+
+	<div id="right">
+	    <h3>Casino</h3>
+	    <p>(earns/takes 0-50 golds)</p>
+	    <form method="post" action='/ninjas/rpg'> 
+	        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	        <input type="hidden" name="ninja" value="casino">        
+	        <button class="btn btn-primary" type="submit" value="Submit">Find Gold!</button>
+	    </form> 
+	</div>
+
+	<div id="scroll">  
+	    <h3>Activities:</h3>
+	    <div class="row">
+
+			<% @activities.reverse.each do |act| %>​
+	            <% if act.include?("Earned") %>​
+					<p class="earned"><%= act %></p>​
+				<% else %>​
+					<p class="lost"><%= act %></p>​
+				<% end %>​
+			<% end %>​
+
+	    </div>
+	</div>
+	<form method="post" action="/clear"> 
+	    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">  
+	    <%= link_to "Clear", :clear %>   
+<!-- 	    <button class="btn btn-primary btn-sm" type="submit" value="Submit">Clear</button> -->
+	</form> 
+
+</div>    
