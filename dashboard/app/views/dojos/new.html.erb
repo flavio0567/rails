@@ -1,0 +1,26 @@
+
+<div class="panel-heading">
+    <p>Creating a New Dojo</p>
+
+<!-- 	<form action="/dojos" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="text" name="branch" placeholder="Branch">
+		<input type="text" name="street" placeholder="Street">
+		<input type="text" name="city" placeholder="City"> 
+		<input type="text" name="state" placeholder="State">
+		<input type="submit" value="Create Dojo">
+	</form> -->
+
+	<%= form_for(@dojo) do |d| %>
+	<div class="panel-heading">
+		<%= d.label :branch %>
+		<%= d.text_field :branch %>
+		<%= d.label :street %>
+		<%= d.text_field :street %>
+		<%= d.label :city %>
+		<%= d.text_field :city %>
+		<%= d.label :state %>
+		<%= d.text_field :state %>
+	</div>
+	<button type="submit" class="btn btn-default">Create</button>
+	<% end %>
