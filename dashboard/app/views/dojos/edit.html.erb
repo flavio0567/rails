@@ -1,18 +1,36 @@
 
-	<div class="panel-heading">
+<div class="panel-heading">
 
-	    <h3>Editing <%= @dojo.branch %></h3>	
+    <h3>Editing <%= @dojo.branch %></h3>	
 
-		<form action="/dojos/<%= @dojo.id %>" method='post'>
-			<input type="hidden" name="_method" value="patch">
-			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |e| %>
+			<p><%= e %></p>
+		<% end %>
+	<% end %>
+
+	<form action="/dojos/<%= @dojo.id %>" method='post'>
+		<input type="hidden" name="_method" value="patch">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>
+			<label>Branch:</label>
 			<input type="text" name="branch" value="<%= @dojo.branch %>">
+		</p>
+		<p>
+			<label>Street:</label>
 			<input type="text" name="street" value="<%= @dojo.street %>">
+		</p>
+		<p>
+			<label>City:</label>
 			<input type="text" name="city" value="<%= @dojo.city %>">
+        </p>
+        <p>
+        	<label>State:</label>
 			<input type="text" name="state" value="<%= @dojo.state %>">
-			<button type="submit" class="btn btn-default">Update Dojo</button>		
-		</form>
-		<a href="/dojos">Home</a>
-	</div>
+		</p>
+		<button type="submit" class="btn btn-default">Update Dojo</button>		
+	</form>
+	<a href="/dojos">Home</a>
+</div>
 
 

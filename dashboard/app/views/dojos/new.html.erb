@@ -1,6 +1,15 @@
 
-<div class="col-lg-12">    
+
+<div class="col-lg-12">  
+
     <h3>Creating a New Dojo</h3>
+
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |e| %>
+			<p><%= e %></p>
+		<% end %>
+	<% end %>
+
 	<div class="panel-heading"> 
 	<%= form_for(@dojo) do |d| %>
 

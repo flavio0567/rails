@@ -1,17 +1,45 @@
 
-	<div class="panel-heading">
+<div class="panel-heading">
 
-	    <h3>Dojo <%= @dojo.branch %></h3>	
+    <h3>Dojo <%= @dojo.branch %></h3>	
 
-		<form action="/dojos/<%= @dojo.id %>" method='post'>
-			<input type="hidden" name="_method" value="delete">
-			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-			<input type="text" name="branch" value="<%= @dojo.branch %>">
-			<input type="text" name="street" value="<%= @dojo.street %>">
-			<input type="text" name="city" value="<%= @dojo.city %>">
-			<input type="text" name="state" value="<%= @dojo.state %>">
-			<button type="submit" class="btn btn-default">Destroy Dojo</button>		
-		</form>
-		<a href="/dojos">Home  </a><a href="/dojos/<%= @dojo.id %>/edit">|  Edit</a>
-	</div>
+	<form action="/dojos/<%= @dojo.id %>" method='post'>
+		<input type="hidden" name="_method" value="delete">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<input type="text" name="branch" value="<%= @dojo.branch %>">
+		<input type="text" name="street" value="<%= @dojo.street %>">
+		<input type="text" name="city" value="<%= @dojo.city %>">
+		<input type="text" name="state" value="<%= @dojo.state %>">
+		<button type="submit" class="btn btn-default">Destroy Dojo</button>		
+	</form>
+	<a href="/dojos/<%= @dojo.id %>/edit">Edit</a>
+
+
+	<h4>Student Roster</h4>
+	<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<% @students.each do |student| %>
+			<tr>
+				<td><%= student.first_name %></td>
+				<td><%= student.last_name %></td>
+				<td><%= student.email %></td>
+				<td><a href="/dojos/<%= @dojo.id %>/students/<%= student.id %>">Show</a>
+				    <%= my_link_to "Edit", students_edit_path(@dojo.id, student.id) %>
+				    <a href="/dojos/<%= @dojo.id %>/students/<%= student.id %>">Destroy</a></td>
+			</tr>
+		<% end%>
+	</table>
+	<%= my_link_to "Home", dojos_path %> | <%= my_link_to "Add Student", students_new_path(@dojo.id) %>
+
+</div>
+
 

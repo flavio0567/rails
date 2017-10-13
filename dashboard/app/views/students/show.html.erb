@@ -1,0 +1,28 @@
+<div class="panel-heading">
+
+	<h3><%= "#{@student.branch}'s #{@student.first_name} #{@student.last_name}" %></h3>
+
+	<h4>Email: <%= "#{@student.email}" %></h4>
+
+	<h4>Cohort</h4>
+
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</thead>
+		<tbody>
+			<% @cohort.each do |student| %>
+			<tr>
+				<td><%= student.first_name %></td>
+				<td><%= student.last_name %></td>
+				<td><%= student.email %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+
+<%= my_link_to "Home", dojos_path %>  | <%= my_link_to "Edit", students_edit_path(@student.dojo_id, @student.id) %>
+
