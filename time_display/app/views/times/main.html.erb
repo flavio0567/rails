@@ -1,2 +1,4 @@
 <p>The current date and time:</p>
-<h1> <%= @time %></h1>
+
+<h3><%= @time.strftime("%b %d, %Y") %></h3>
+<h3><%= @time.strftime("%I:%M %p") %></h3>

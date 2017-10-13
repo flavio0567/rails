@@ -1,5 +1,5 @@
 class TimesController < ApplicationController
-  def index
+  def main
     @time = Time.now.strftime("%b %d, %Y %I:%M %p") 
     render 'main.html.erb'
   end
